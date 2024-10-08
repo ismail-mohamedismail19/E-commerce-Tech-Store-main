@@ -412,7 +412,11 @@ a{
     left: 50%;
     transform: translateX(-50%);
 }
-
+@media (max-width: 576px) {
+  .card .card-img-top{
+    width: 50%;
+  }
+}
 
 .laptops .cover{
     background-image: url(./img/laptops/cover.png);
