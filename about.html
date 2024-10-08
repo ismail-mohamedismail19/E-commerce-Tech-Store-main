@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+    <!--?  [{*******    Top bar     *******}]-->
+    <div class="container-fluid top-bar">
+        <div class="row">
+            <div class="col-md-4 text-start">Mon-Thu: 9:00 AM - 5:30 PM</div>
+            <div class="col-md-4 text-center">
+                Visit our showroom in 1234 Street Address City Address, 1234
+                <a href="#" class="text-white fw-bold modern-underline">Contact Us</a>
+            </div>
+            <div class="col-md-4 text-end">
+                Call Us: (00) 1234 5678
+                <a href="https://www.facebook.com" class="text-white"><i data-feather="facebook"></i></a>
+                <a href="https://www.instagram.com" class="text-white"><i data-feather="instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!--?  [{*******    Main Content     *******}]-->
+    <div class="custom-container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand m-0 p-0" href="#">
+              <img src="img/Logo.png" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link nav-titles ms-0" href="#">Laptops</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">Desktop PCs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">Networking Devices</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">Printers & Scanners</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">PC Parts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">All Other Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-titles" href="#">Repairs</a>
+                </li>
+                <button type="button" class="btn btn-outline-primary btn-deals">
+                  Our Deals
+                </button>
+              </ul>
+      
+              <!--* Buttons aligned with the navbar -->
+              <div class="btns align-items-center d-flex">
+                <ul class="d-flex list-unstyled align-items-center mb-0">
+                    <li class="me-3">
+                        <a href="#" class="nav-link search-btn" id="open-search">
+                            <i data-feather="search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link position-relative header-action-btn" aria-label="Open shopping cart" data-panel-btn="cart">
+                            <i data-feather="shopping-bag"></i>
+                            <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">
+                                0
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link user-login">
+                            <img id="navUserAvatar" src="" alt="User Avatar" class="rounded-circle" width="32" height="32" style="display: none;" />
+                            <i data-feather="user" id="navUserIcon" class="feather-28"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link user-logout" id="logoutBtn">
+                            <i data-feather="log-out" class="feather-28"></i> <!-- أيقونة تسجيل الخروج -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script>
+              document.getElementById('logoutBtn').addEventListener('click', function (event) {
+                  event.preventDefault(); // منع إعادة تحميل الصفحة
+                  // حذف بيانات المستخدم من التخزين المحلي
+                  localStorage.removeItem('userAvatar'); // إزالة صورة الأفاتار
+                  localStorage.removeItem('userSession'); // إزالة بيانات الجلسة (استبدل 'userSession' باسم المفتاح المناسب)
+              
+                  // إعادة توجيه المستخدم إلى صفحة تسجيل الدخول
+                  window.location.href = 'login.html'; // تغيير هذا إلى رابط صفحة تسجيل الدخول
+              });
+              </script>
+                      
+            </div>
+          </div>
+      
+          <!-- Hidden Search Bar -->
+          <div class="search-bar d-none position-absolute top-0 start-0 w-100 bg-light p-3 shadow-sm" id="search-bar">
+            <div class="container d-flex justify-content-between align-items-center">
+              <input type="text" class="form-control me-2" placeholder="Search entire store here..." />
+              <button class="btn btn-outline-secondary" id="close-search">
+                <i data-feather="x"></i>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+
+
+    <div class="hr"></div>
+
+    <!-- Side Panel -->
+    <div id="sidePanel" class="side-panel">
+        <div class="side-panel-top">
+            <h5>Shopping Cart</h5>
+            <button class="close-btn" aria-label="Close panel">&times;</button>
+        </div>
+        <div class="item-list">
+            <!-- Example item -->
+            <div class="item">
+                <img src="img/product-view/nzxt-black-1.jpg" alt="Item Photo" class="item-photo" />
+                <div class="item-info">
+                    <p class="item-name">NZXT H7 Flow 2024</p>
+                    <p class="item-price">Price: $10.00</p>
+                    <p class="item-qty">Qty: 1</p>
+                    <div class="item-color-container">
+                        <span class="item-color">Color: <span class="color-display"></span></span>
+                    </div>
+                </div>
+                <button class="remove-btn" aria-label="Remove item">&times;</button>
+            </div>
+            <!-- Add more items as needed -->
+        </div>
+        <div class="subtotal-price">
+            <p>Subtotal:</p>
+            <p class="total-price"></p>
+        </div>
+        <a href="cart.html"><button class="view-cart-btn">View Cart</button></a>
+    </div>
+
+
+
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" class="mt-3 mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container mt-5 mb-3">
+        <h1 class="mb-3 fw-bold">About Us</h1>
+    </div>
+
+    <section>
+        <div class="main-section">
+            <div class="black-section">
+                <div class="container d-flex justify-content-between align-items-center flex-lg-row flex-column">
+                    <article>
+                        <div class="d-flex align-items-center mb-4">
+                            <i data-feather="home" class="feather-32 text-white me-3"></i>
+                            <h1 class="main-section-title text-white fw-light mb-0">
+                                A Family That Keeps <br> On Growing
+                            </h1>
+                        </div>
+                        <p class="main-section-paragraph text-white fw-light">
+                            We always aim to please the home market, supplying great computers
+                            and hardware at great prices to non-corporate customers, through
+                            our large Melbourne CBD showroom and our online store.
+                        </p>
+                        <p class="main-section-paragraph text-white fw-light">
+                            Shop management approach fosters a strong customer service focus
+                            in our staff. We prefer to cultivate long-term client
+                            relationships rather than achieve quick sales, demonstrated in the
+                            measure of our long-term success.
+                        </p>
+                    </article>
+                    <img src="img/about-img/1.png" alt="" class="img-fluid mx-auto mt-4 mt-lg-0" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="main-section">
+            <div class="white-section">
+                <div class="container d-flex justify-content-between align-items-center flex-lg-row flex-column">
+                    <article>
+                        <div class="d-flex align-items-center mb-4">
+                            <i data-feather="shopping-cart" class="feather-32 text-black me-3"></i>
+                            <h1 class="main-section-title text-black fw-light mb-0">
+                                Shop.com
+                            </h1>
+                        </div>
+                        <p class="main-section-paragraph text-black fw-light">
+                            Shop.com is a proudly Australian owned, Melbourne based supplier
+                            of I.T. goods and services, operating since 1991. Our client base
+                            encompasses individuals, small business, corporate and government
+                            organisations. We provide complete business IT solutions, centred
+                            on high quality hardware and exceptional customer service.
+                        </p>
+                    </article>
+                    <img src="img/about-img/Rectangle_11-removebg-preview.png" alt=""
+                        class="img-fluid mx-auto mt-4 mt-lg-0" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="main-section">
+            <div class="black-section">
+                <div class="container d-flex justify-content-between align-items-center flex-lg-row flex-column">
+                    <article>
+                        <div class="d-flex align-items-center mb-4">
+                            <i data-feather="shield" class="feather-32 text-white me-3"></i>
+                            <h1 class="main-section-title text-white fw-light mb-0">
+                                Now You're In Safe Hands
+                            </h1>
+                        </div>
+                        <p class="main-section-paragraph text-white fw-light">
+                            Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen.
+                            Intel&reg; Core&trade; i7 processor with the upmost computing power to bring you an
+                            unparalleled gaming experience.
+                        </p>
+                        <p class="main-section-paragraph text-white fw-light">
+                            *Performance compared to i7-9700. Specs varies by model.
+                        </p>
+                    </article>
+                    <img src="img/about-img/3.png" alt="" class="img-fluid mx-auto mt-4 mt-lg-0" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="main-section">
+            <div class="white-section">
+                <div class="container d-flex align-items-center justify-content-center flex-lg-row flex-column">
+                    <article>
+                        <div class="d-flex align-items-center mb-4">
+                            <i data-feather="star" class="feather-32 text-black me-3"></i>
+                            <h1 class="main-section-title text-black fw-light mb-0">
+                                The Highest Quality of Products
+                            </h1>
+                        </div>
+                        <p class="main-section-paragraph text-black fw-light">
+                            We guarantee the highest quality of the products we sell. Several decades of successful
+                            operation and millions of happy customers let us feel certain about that. Besides, all items
+                            we sell pass thorough quality control, so no characteristics mismatch can escape the eye of
+                            our professionals.
+                        </p>
+                    </article>
+                    <img src="img/about-img/Rectangle%2013.png" alt="" class="img-fluid mx-auto mt-4 mt-lg-0"
+                        style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="main-section">
+            <div class="black-section">
+                <div class="container d-flex justify-content-between align-items-center flex-lg-row flex-column">
+                    <article>
+                        <div class="d-flex align-items-center mb-4">
+                            <i data-feather="truck" class="feather-32 text-white me-3"></i>
+                            <h1 class="main-section-title text-white fw-light mb-0">
+                                Fast & Reliable Delivery
+                            </h1>
+                        </div>
+                        <p class="main-section-paragraph text-white fw-light">
+                            We deliver our goods all across Australia. No matter where you live, your order will be
+                            shipped in time and delivered right to your door or to any other location you have stated.
+                            The packages are handled with utmost care, so the ordered products will be handed to you
+                            safe and sound, just like you expect them to be.
+                        </p>
+                    </article>
+                    <img src="img/about-img/2.png" alt="" class="img-fluid mx-auto mt-4 mt-lg-0" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--?  [{*******************************}]-->
+    <!--?  [{*******    Testtmonials     ***********}]-->
+    <!--?  [{*******************************}]-->
+
+    <div class="testimonial-container container mt-5">
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial">
+                        <div class="testimonial-2 d-flex align-items-center flex-md-row flex-column">
+                            <div>
+                                <span class="pe-md-5" style="font-size: 130px">&ldquo;</span>
+                            </div>
+                            <div>
+                                <p class="testimonial-quote">
+                                    My first order arrived today in perfect condition. From the time I sent a question
+                                    about the item to making the purchase, to the shipping and now the delivery, your
+                                    company, Tecs, has stayed in touch. Such great service. I look forward to shopping
+                                    on your site in the future and would highly recommend it.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="testimonial-author pb-5 text-center text-md-start">- Tama Brown</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial">
+                        <div class="testimonial-2 d-flex align-items-center flex-md-row flex-column">
+                            <div>
+                                <span class="pe-md-5" style="font-size: 130px">&ldquo;</span>
+                            </div>
+                            <div>
+                                <p class="testimonial-quote">
+                                    Excellent service and quick delivery. The product was exactly as described, and the
+                                    customer support was very helpful.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="testimonial-author pb-5 text-center text-md-start">- Alex Johnson</p>
+                    </div>
+                </div>
+                <!-- Add more carousel items here for more testimonials -->
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <div class="carousel-indicators d-flex justify-content-center">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <!-- Add more indicators for more testimonials -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--?  [{*******************************}]-->
+    <!--?  [{*******    Features     *******}]-->
+    <!--?  [{*******************************}]-->
+
+    <div class="features-container">
+        <div class="container"> <!-- Added container class -->
+          <div class="text-center py-lg-5 mt-3">
+            <div class="row justify-content-center align-items-start">
+              <!-- Column 1 -->
+              <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+                <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                      background-color: #0156ff;
+                      padding: 15px;
+                      margin-bottom: 20px;
+                      height: 60px;
+                      width: 60px;
+                    ">
+                  <i data-feather="headphones" class="feather-64"></i>
+                </div>
+                <h4 class="mb-3">Web Design</h4>
+                <p class="mb-3 text-secondary">
+                  Up to 3 years on-site warranty<br />
+                  available for your peace of mind.
+                </p>
+              </div>
+      
+              <!-- Column 2 -->
+              <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+                <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                      background-color: #0156ff;
+                      padding: 15px;
+                      margin-bottom: 20px;
+                      height: 60px;
+                      width: 60px;
+                    ">
+                  <i data-feather="user" class="feather-64"></i>
+                </div>
+                <h4 class="mb-3">Personal Account</h4>
+                <p class="mb-3 text-secondary">
+                  With big discounts, free delivery and<br />
+                  a dedicated support specialist.
+                </p>
+              </div>
+      
+              <!-- Column 3 -->
+              <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+                <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                      background-color: #0156ff;
+                      padding: 15px;
+                      margin-bottom: 20px;
+                      height: 60px;
+                      width: 60px;
+                    ">
+                  <i data-feather="percent" class="feather-64"></i>
+                </div>
+                <h4 class="mb-3">Amazing Savings</h4>
+                <p class="mb-3 text-secondary">
+                  Up to 70% off new Products, you can<br />
+                  be sure of the best price.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    <!--?  [{****************************}]-->
+    <!--?  [{*******   Footer     *******}]-->
+    <!--?  [{****************************}]-->
+
+    <footer class="footer text-white py-5">
+        <div class="container">
+            <!-- First Row: Newsletter -->
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h2 class="footer-heading mb-3">Subscribe to Our Newsletter</h2>
+                    <p class="footer-subtext">Be the first to hear about the latest offers and updates.</p>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+                    <div class="input-group w-100 w-lg-75">
+                        <input type="email" class="form-control rounded-start-pill" placeholder="Your Email">
+                        <button class="btn btn-subscribe rounded-end-pill px-lg-4 py-lg-2"
+                            type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row: Navigation Links -->
+            <div class="row footer-links text-center text-lg-start mb-4">
+                <!-- Column 1 -->
+                <div class="col-sm-6 col-lg-2 mb-4">
+                    <h6 class="footer-title mb-3">Information</h6>
+                    <ul class="footer-list">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Search</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                        <li><a href="#" class="footer-link">Orders and Returns</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Advanced Search</a></li>
+                        <li><a href="#" class="footer-link">Newsletter Subscription</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-sm-6 col-lg-2 mb-4">
+                    <h6 class="footer-title mb-3">PC Parts</h6>
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">CPUs</a></li>
+                        <li><a href="#" class="footer-link">Add On Cards</a></li>
+                        <li><a href="#" class="footer-link">Hard Drives (Internal)</a></li>
+                        <li><a href="#" class="footer-link">Graphic Cards</a></li>
+                        <li><a href="#" class="footer-link">Keyboards / Mice</a></li>
+                        <li><a href="#" class="footer-link">Cases / Power Supplies / Cooling</a></li>
+                        <li><a href="#" class="footer-link">RAM (Memory)</a></li>
+                        <li><a href="#" class="footer-link">Software</a></li>
+                        <li><a href="#" class="footer-link">Speakers / Headsets</a></li>
+                        <li><a href="#" class="footer-link">Motherboards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-sm-6 col-lg-2 mb-4">
+                    <h6 class="footer-title mb-3">Desktop PCs</h6>
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">Custom PCs</a></li>
+                        <li><a href="#" class="footer-link">Servers</a></li>
+                        <li><a href="#" class="footer-link">MSI All-In-One PCs</a></li>
+                        <li><a href="#" class="footer-link">HP/Compaq PCs</a></li>
+                        <li><a href="#" class="footer-link">ASUS PCs</a></li>
+                        <li><a href="#" class="footer-link">Tecs PCs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="col-sm-6 col-lg-2 mb-4">
+                    <h6 class="footer-title mb-3">Laptops</h6>
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">Everyday Use Notebooks</a></li>
+                        <li><a href="#" class="footer-link">MSI Workstation Series</a></li>
+                        <li><a href="#" class="footer-link">MSI Prestige Series</a></li>
+                        <li><a href="#" class="footer-link">Tablets and Pads</a></li>
+                        <li><a href="#" class="footer-link">Netbooks</a></li>
+                        <li><a href="#" class="footer-link">Infinity Gaming Notebooks</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5 -->
+                <div class="col-sm-12 col-lg-2 mb-4">
+                    <h6 class="footer-title mb-3">Address</h6>
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">Address: 1234 Street Address City, 1234</a></li>
+                        <li><a href="#" class="footer-link">Phones: (00) 1234 5678</a></li>
+                        <li><a href="#" class="footer-link">We are open: Monday-Thursday: 9:00 AM - 5:30 PM</a></li>
+                        <li><a href="#" class="footer-link">Friday: 9:00 AM - 6:00 PM</a></li>
+                        <li><a href="#" class="footer-link">Saturday: 11:00 AM - 5:00 PM</a></li>
+                        <li><a href="#" class="footer-link">E-mail: shop@email.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HR separator -->
+            <hr style="background-color: #ffffff">
+
+
+            <!-- Final Row: Social Media and Payment Methods -->
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" class="text-white"><i data-feather="facebook"></i></a>
+                        <a href="https://www.instagram.com" class="text-white"><i data-feather="instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="payment-icons">
+                        <img src="img/paypal.png" alt="paypal">
+                        <img src="img/visa.png" alt="MasterCard">
+                        <img src="img/discover.png" alt="discover">
+                        <img src="img/american-express.png" alt="American Express">
+                    </div>
+                </div>
+                <div class="col-lg-4 text-end">
+                    <small> Copyright &copy; 2020 Shop Pty. Ltd.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Open search bar
+        document.getElementById('open-search').addEventListener('click', function () {
+            document.getElementById('search-bar').classList.remove('d-none');
+        });
+
+        // Close search bar
+        document.getElementById('close-search').addEventListener('click', function () {
+            document.getElementById('search-bar').classList.add('d-none');
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+    <script src="cart.js"></script>
+    <script src="login.js"></script>
+    <script src="user.js"></script>
+</body>
+
+</html>

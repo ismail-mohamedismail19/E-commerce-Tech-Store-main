@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="panel.css" />
+  <link rel="stylesheet" href="cart.css" />
+</head>
+
+<body>
+  <!--?  [{*******    Top bar     *******}]-->
+  <div class="container-fluid top-bar">
+    <div class="row">
+      <div class="col-md-4 text-start">Mon-Thu: 9:00 AM - 5:30 PM</div>
+      <div class="col-md-4 text-center">
+        Visit our showroom in 1234 Street Address City Address, 1234
+        <a href="#" class="text-white fw-bold modern-underline">Contact Us</a>
+      </div>
+      <div class="col-md-4 text-end">
+        Call Us: (00) 1234 5678
+        <a href="https://www.facebook.com" class="text-white"><i data-feather="facebook"></i></a>
+        <a href="https://www.instagram.com" class="text-white"><i data-feather="instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!--?  [{*******    Nav Bar   *******}]-->
+  <div class="custom-container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand m-0 p-0" href="#">
+          <img src="img/Logo.png" alt="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link nav-titles ms-0" href="#">Laptops</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">Desktop PCs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">Networking Devices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">Printers & Scanners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">PC Parts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">All Other Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-titles" href="#">Repairs</a>
+            </li>
+            <button type="button" class="btn btn-outline-primary btn-deals">
+              Our Deals
+            </button>
+          </ul>
+  
+          <!--* Buttons aligned with the navbar -->
+          <div class="btns align-items-center d-flex">
+            <ul class="d-flex list-unstyled align-items-center mb-0">
+                <li class="me-3">
+                    <a href="#" class="nav-link search-btn" id="open-search">
+                        <i data-feather="search"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link position-relative header-action-btn" aria-label="Open shopping cart" data-panel-btn="cart">
+                        <i data-feather="shopping-bag"></i>
+                        <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">
+                            0
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link user-login">
+                        <img id="navUserAvatar" src="" alt="User Avatar" class="rounded-circle" width="32" height="32" style="display: none;" />
+                        <i data-feather="user" id="navUserIcon" class="feather-28"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link user-logout" id="logoutBtn">
+                        <i data-feather="log-out" class="feather-28"></i> <!-- أيقونة تسجيل الخروج -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script>
+          document.getElementById('logoutBtn').addEventListener('click', function (event) {
+              event.preventDefault(); // منع إعادة تحميل الصفحة
+              // حذف بيانات المستخدم من التخزين المحلي
+              localStorage.removeItem('userAvatar'); // إزالة صورة الأفاتار
+              localStorage.removeItem('userSession'); // إزالة بيانات الجلسة (استبدل 'userSession' باسم المفتاح المناسب)
+          
+              // إعادة توجيه المستخدم إلى صفحة تسجيل الدخول
+              window.location.href = 'login.html'; // تغيير هذا إلى رابط صفحة تسجيل الدخول
+          });
+          </script>
+                  
+        </div>
+      </div>
+  
+      <!-- Hidden Search Bar -->
+      <div class="search-bar d-none position-absolute top-0 start-0 w-100 bg-light p-3 shadow-sm" id="search-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+          <input type="text" class="form-control me-2" placeholder="Search entire store here..." />
+          <button class="btn btn-outline-secondary" id="close-search">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!--?  [{*******    Side Panel   *******}]-->
+  <div id="sidePanel" class="side-panel">
+    <div class="side-panel-top">
+      <h5>Shopping Cart</h5>
+      <button class="close-btn" aria-label="Close panel">&times;</button>
+    </div>
+    <div class="item-list">
+      <!-- Example item -->
+      <div class="item">
+        <img src="img/product-view/nzxt-black-1.jpg" alt="Item Photo" class="item-photo" />
+        <div class="item-info">
+          <p class="item-name">NZXT H7 Flow 2024</p>
+          <p class="item-price">Price: $10.00</p>
+          <p class="item-qty">Qty: 1</p>
+          <div class="item-color-container justify-content-start">
+            <span class="item-color">Color: <span class="color-display"></span></span>
+          </div>
+        </div>
+        <button class="remove-btn" aria-label="Remove item">&times;</button>
+      </div>
+      <!-- Add more items as needed -->
+    </div>
+    <div class="subtotal-price">
+      <p>Subtotal:</p>
+      <p class="total-price"></p>
+    </div>
+    <a href="cart.html"><button class="view-cart-btn">View Cart</button></a>
+  </div>
+
+  <div class="hr"></div>
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb" class="mt-3 mb-5 p-0">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="page-content mt-3">
+    <div class="custom-container">
+      <div class="page-info">
+        <h2 class="fw-bolder">Shopping Cart</h2>
+      </div>
+      <div class="cart-container">
+        <div class="items-list">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cart-item-info">
+                  <img src="" alt="Product Image" class="product-image" />
+                  <p></p>
+                </td>
+                <td></td>
+                <td>
+                  <input type="number" value="1" class="quantity-input" />
+                </td>
+                <td></td>
+                <td>
+                  <button class="remove-item">&#10006;</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="items-summary">
+          <div class="summary-box">
+            <h5 class="fw-bolder mb-3">Summary</h5>
+
+            <div class="first-input">
+              <span class="accordion-title d-block fs-6">Estimate Shipping and Tax</span>
+              <span class="text-body-tertiary" style="font-size: 14px">Enter your destination to get a shipping <br />
+                estimate.</span>
+
+              <div class="form-container mb-4">
+                <div class="mb-3">
+                  <label for="countrySelect" class="form-label">Country</label>
+                  <select class="form-select" id="countrySelect" aria-label="Select country">
+                    <option selected>Select country</option>
+                    <option value="1">USA</option>
+                    <option value="2">Canada</option>
+                    <option value="3">UK</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="stateInput" class="form-label">State/Province</label>
+                  <input type="text" class="form-control" id="stateInput" placeholder="State/Province" />
+                </div>
+
+                <div class="mb-3">
+                  <label for="zipInput" class="form-label">Zip/Postal Code</label>
+                  <input type="number" class="form-control" id="zipInput" placeholder="Zip/Postal Code" />
+                </div>
+
+                <div class="mb-3">
+                  <h6 class="small">Standard Rate</h6>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shippingRate" id="standardRate" />
+                    <label class="form-check-label" for="standardRate">
+                      Price may vary depending on the item/destination. Shop
+                      staff will contact you. $21.00
+                    </label>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <h6 class="small">Pickup from Store</h6>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shippingRate" id="pickupRate" />
+                    <label class="form-check-label" for="pickupRate">
+                      1234 Street Address, City, 12345 $0.00
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="second-input">
+              <span class="accordion-title d-block fs-6">Apply Discount Code</span>
+              <div class="form-container mb-3">
+                <label for="stateInput" class="form-label">Enter Discount code</label>
+                <input type="text" class="form-control" id="discountCode" placeholder="Enter Discount code" />
+              </div>
+              <button class="btn discount-button fw-semibold">
+                Apply Discount
+              </button>
+            </div>
+
+            <hr style="color: #cacdd8" />
+
+            <div class="summary-info mb-3">
+              <div class="summary-info-row">
+                <span>Subtotal</span>
+                <span>$13,047.00</span>
+              </div>
+              <div class="summary-info-row">
+                <span>Shipping</span>
+                <span>$21.00</span>
+              </div>
+              <div class="summary-info-row">
+                <span class="long-text text-body-tertiary" style="font-size: 12px">
+                  (Standard Rate - Price may vary depending on the
+                  item/destination. Shop Staff will contact you.)
+                </span>
+                <span></span>
+              </div>
+              <div class="summary-info-row">
+                <span>Tax</span>
+                <span>$1.91</span>
+              </div>
+              <div class="summary-info-row">
+                <span>GST (10%)</span>
+                <span>$1.91</span>
+              </div>
+              <div class="summary-info-row">
+                <span>Order Total</span>
+                <span class="order-total">$13,070.82</span>
+              </div>
+            </div>
+
+            <div class="checkout-buttons">
+              <button id="proceedToCheckout" class="btn checkout-btn fw-semibold">
+                Proceed to Checkout
+              </button>
+              <button id="paypalCheckout" class="btn paypal-btn fw-semibold">
+                Check out with
+                <img src="./img/product-view/Group 114.png" alt="" />
+              </button>
+              <button id="multipleAddressesCheckout" class="btn mute-btn fw-semibold">
+                Check Out With Multiple Addresses
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--?  [{*******************************}]-->
+  <!--?  [{*******    Features     *******}]-->
+  <!--?  [{*******************************}]-->
+
+  <div class="features-container">
+    <div class="container"> <!-- Added container class -->
+      <div class="text-center py-lg-5 mt-3">
+        <div class="row justify-content-center align-items-start">
+          <!-- Column 1 -->
+          <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+            <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                  background-color: #0156ff;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  height: 60px;
+                  width: 60px;
+                ">
+              <i data-feather="headphones" class="feather-64"></i>
+            </div>
+            <h4 class="mb-3">Web Design</h4>
+            <p class="mb-3 text-secondary">
+              Up to 3 years on-site warranty<br />
+              available for your peace of mind.
+            </p>
+          </div>
+  
+          <!-- Column 2 -->
+          <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+            <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                  background-color: #0156ff;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  height: 60px;
+                  width: 60px;
+                ">
+              <i data-feather="user" class="feather-64"></i>
+            </div>
+            <h4 class="mb-3">Personal Account</h4>
+            <p class="mb-3 text-secondary">
+              With big discounts, free delivery and<br />
+              a dedicated support specialist.
+            </p>
+          </div>
+  
+          <!-- Column 3 -->
+          <div class="col-12 col-sm-6 col-lg-3 mb-4"> <!-- Adjusted to col-12 for small screens -->
+            <div class="badge d-flex justify-content-center align-items-center rounded-circle mx-auto" style="
+                  background-color: #0156ff;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  height: 60px;
+                  width: 60px;
+                ">
+              <i data-feather="percent" class="feather-64"></i>
+            </div>
+            <h4 class="mb-3">Amazing Savings</h4>
+            <p class="mb-3 text-secondary">
+              Up to 70% off new Products, you can<br />
+              be sure of the best price.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--?  [{****************************}]-->
+  <!--?  [{*******   Footer     *******}]-->
+  <!--?  [{****************************}]-->
+
+  <footer class="footer text-white py-5">
+    <div class="container">
+      <!-- First Row: Newsletter -->
+      <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 text-center text-lg-start">
+          <h2 class="footer-heading mb-3">Subscribe to Our Newsletter</h2>
+          <p class="footer-subtext">Be the first to hear about the latest offers and updates.</p>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+          <div class="input-group w-100 w-lg-75">
+            <input type="email" class="form-control rounded-start-pill" placeholder="Your Email">
+            <button class="btn btn-subscribe rounded-end-pill px-lg-4 py-lg-2" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row: Navigation Links -->
+      <div class="row footer-links text-center text-lg-start mb-4">
+        <!-- Column 1 -->
+        <div class="col-sm-6 col-lg-2 mb-4">
+          <h6 class="footer-title mb-3">Information</h6>
+          <ul class="footer-list">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Search</a></li>
+            <li><a href="#" class="footer-link">Terms</a></li>
+            <li><a href="#" class="footer-link">Orders and Returns</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Advanced Search</a></li>
+            <li><a href="#" class="footer-link">Newsletter Subscription</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-sm-6 col-lg-2 mb-4">
+          <h6 class="footer-title mb-3">PC Parts</h6>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">CPUs</a></li>
+            <li><a href="#" class="footer-link">Add On Cards</a></li>
+            <li><a href="#" class="footer-link">Hard Drives (Internal)</a></li>
+            <li><a href="#" class="footer-link">Graphic Cards</a></li>
+            <li><a href="#" class="footer-link">Keyboards / Mice</a></li>
+            <li><a href="#" class="footer-link">Cases / Power Supplies / Cooling</a></li>
+            <li><a href="#" class="footer-link">RAM (Memory)</a></li>
+            <li><a href="#" class="footer-link">Software</a></li>
+            <li><a href="#" class="footer-link">Speakers / Headsets</a></li>
+            <li><a href="#" class="footer-link">Motherboards</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-sm-6 col-lg-2 mb-4">
+          <h6 class="footer-title mb-3">Desktop PCs</h6>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Custom PCs</a></li>
+            <li><a href="#" class="footer-link">Servers</a></li>
+            <li><a href="#" class="footer-link">MSI All-In-One PCs</a></li>
+            <li><a href="#" class="footer-link">HP/Compaq PCs</a></li>
+            <li><a href="#" class="footer-link">ASUS PCs</a></li>
+            <li><a href="#" class="footer-link">Tecs PCs</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="col-sm-6 col-lg-2 mb-4">
+          <h6 class="footer-title mb-3">Laptops</h6>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Everyday Use Notebooks</a></li>
+            <li><a href="#" class="footer-link">MSI Workstation Series</a></li>
+            <li><a href="#" class="footer-link">MSI Prestige Series</a></li>
+            <li><a href="#" class="footer-link">Tablets and Pads</a></li>
+            <li><a href="#" class="footer-link">Netbooks</a></li>
+            <li><a href="#" class="footer-link">Infinity Gaming Notebooks</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="col-sm-12 col-lg-2 mb-4">
+          <h6 class="footer-title mb-3">Address</h6>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Address: 1234 Street Address City, 1234</a></li>
+            <li><a href="#" class="footer-link">Phones: (00) 1234 5678</a></li>
+            <li><a href="#" class="footer-link">We are open: Monday-Thursday: 9:00 AM - 5:30 PM</a></li>
+            <li><a href="#" class="footer-link">Friday: 9:00 AM - 6:00 PM</a></li>
+            <li><a href="#" class="footer-link">Saturday: 11:00 AM - 5:00 PM</a></li>
+            <li><a href="#" class="footer-link">E-mail: shop@email.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HR separator -->
+      <hr style="background-color: #ffffff">
+
+
+      <!-- Final Row: Social Media and Payment Methods -->
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-center">
+          <div class="social-icons">
+            <a href="https://www.facebook.com" class="text-white"><i data-feather="facebook"></i></a>
+            <a href="https://www.instagram.com" class="text-white"><i data-feather="instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center">
+          <div class="payment-icons">
+            <img src="img/paypal.png" alt="paypal">
+            <img src="img/visa.png" alt="MasterCard">
+            <img src="img/discover.png" alt="discover">
+            <img src="img/american-express.png" alt="American Express">
+          </div>
+        </div>
+        <div class="col-lg-4 text-end">
+          <small> Copyright &copy; 2020 Shop Pty. Ltd.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => {
+            t.classList.remove("selected");
+            t.classList.remove("fw-bold");
+            t.classList.add("text-muted");
+          });
+
+          contents.forEach((content) => {
+            content.classList.remove("visible");
+            content.style.display = "none";
+          });
+
+          // Show the content associated with the clicked tab
+          const targetContentId = tab.getAttribute("data-target");
+          const targetContent = document.getElementById(targetContentId);
+          if (targetContent) {
+            targetContent.style.display = "block";
+            setTimeout(() => {
+              targetContent.classList.add("visible");
+            }, 10);
+          }
+
+          tab.classList.add("selected");
+          tab.classList.add("fw-bold");
+          tab.classList.remove("text-muted");
+        });
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainImage = document.getElementById("mainImage");
+      const dots = document.querySelectorAll(".dot");
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const newSrc = dot.getAttribute("data-target");
+          mainImage.src = newSrc;
+
+          dots.forEach((d) => d.classList.remove("active"));
+
+          dot.classList.add("active");
+        });
+      });
+
+      if (dots.length > 0) {
+        dots[0].classList.add("active");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const contents = document.querySelectorAll(".product-info .content");
+
+      contents.forEach((content) => {
+        content.classList.add("visible");
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const contents = document.querySelectorAll(".product-info .content");
+
+      contents.forEach((content) => {
+        content.classList.add("visible");
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const productInfo = document.querySelector(".content-box");
+
+      if (productInfo) {
+        productInfo.classList.add("visible");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const circles = document.querySelectorAll(".circle");
+
+      circles.forEach((circle) => {
+        circle.addEventListener("click", () => {
+          circles.forEach((c) => c.classList.remove("selected"));
+
+          circle.classList.add("selected");
+        });
+      });
+    });
+
+
+
+    /* side panel */
+    document.querySelector('.header-action-btn').addEventListener('click', function () {
+      document.getElementById('sidePanel').classList.add('show');
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', function () {
+      document.getElementById('sidePanel').classList.remove('show');
+    });
+
+
+    /* Add to Cart integrate with side panel */
+
+    // Function to update the side panel based on localStorage
+    // Function to update the side panel based on localStorage
+    function updateSidePanel() {
+      const sidePanel = document.getElementById('sidePanel');
+      if (!sidePanel) return; // Exit if sidePanel is not found
+
+      const itemList = sidePanel.querySelector('.item-list');
+      const totalPriceElement = sidePanel.querySelector('.total-price');
+
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      // Check if cart is empty
+      if (cartItems.length === 0) {
+        itemList.innerHTML = '<p>Your cart is empty.</p>';
+        totalPriceElement.textContent = '$0.00'; // Set total price to $0.00 when empty
+        updateCartBadge(0); // Update badge count to 0
+        return; // Exit function early
+      }
+
+      // Clear existing items
+      itemList.innerHTML = '';
+
+      let subtotal = 0;
+      let totalItems = 0;
+
+      cartItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item';
+
+        itemElement.innerHTML =
+          `<img src="${item.photo}" alt="Item Photo" class="item-photo">
+      <div class="item-info">
+        <p class="item-name">${item.name}</p>
+        <p class="item-price">Price: ${item.price}</p>
+        <p class="item-qty">Qty: ${item.qty}</p>
+        <p class="item-color">Color: <span class="color-display" style="background-color: ${item.color};"></span></p>
+      </div>
+      <button class="remove-btn" data-id="${item.id}" aria-label="Remove item">&times;</button>`;
+
+        itemList.appendChild(itemElement);
+
+        const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ''));
+        subtotal += price * item.qty;
+        totalItems += item.qty; // Count total items
+      });
+
+      totalPriceElement.textContent = `$${subtotal.toFixed(2)}`;
+      updateCartBadge(totalItems); // Update badge count
+    }
+
+    // Event listener for quantity changes
+    document.querySelector('.cart-table').addEventListener('input', function (event) {
+      if (event.target.classList.contains('quantity-input')) {
+        const newQty = parseInt(event.target.value, 10);
+        const itemId = event.target.getAttribute('data-id');
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const itemIndex = cartItems.findIndex(item => item.id == itemId);
+
+        if (itemIndex > -1 && newQty > 0) {
+          cartItems[itemIndex].qty = newQty;
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          updateCartPage();
+          updateSidePanel(); // Update side panel whenever quantity changes
+        }
+      }
+    });
+
+    // Event listener for remove button clicks
+    document.querySelector('.cart-table').addEventListener('click', function (event) {
+      if (event.target.classList.contains('remove-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems = cartItems.filter(item => item.id != itemId);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartPage();
+        updateSidePanel(); // Update side panel whenever an item is removed
+      }
+    });
+
+
+
+    // Function to update the cart badge
+    function updateCartBadge(count) {
+      const cartBadge = document.getElementById('cartBadge');
+      if (cartBadge) {
+        cartBadge.textContent = count;
+      }
+    }
+
+    // Check if the addToCartBtn exists before adding event listener
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function () {
+        const qtyInput = document.getElementById('quantityInput');
+        const qty = parseInt(qtyInput.value, 10);
+
+        if (qty > 0) {
+          const mainImage = document.getElementById('mainImage').src;
+          const productTitle = document.querySelector('.product-info h1').textContent.trim();
+          const productPrice = document.querySelector('.product-price').textContent.trim();
+          const selectedCircle = document.querySelector('.circle-container .circle.selected');
+          const selectedColor = selectedCircle ? selectedCircle.classList[1] : '';
+
+          const colorMap = {
+            'circle-1': '#4b4d4f',
+            'circle-2': '#f2e9dc',
+            'circle-3': '#eae8eb'
+          };
+
+          const colorCode = colorMap[selectedColor] || '';
+
+          let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+          const existingItemIndex = cartItems.findIndex(item => item.name === productTitle && item.color === colorCode);
+
+          if (existingItemIndex > -1) {
+            cartItems[existingItemIndex].qty += qty;
+          } else {
+            const newItem = {
+              id: Date.now(),
+              name: productTitle,
+              price: productPrice,
+              qty: qty,
+              photo: mainImage,
+              color: colorCode
+            };
+
+            cartItems.push(newItem);
+          }
+
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          updateSidePanel();
+        }
+      });
+    }
+
+    // Ensure the side panel is updated on page load
+    updateSidePanel();
+
+    // Handle remove item button clicks
+    document.getElementById('sidePanel').addEventListener('click', function (event) {
+      if (event.target.classList.contains('remove-btn')) {
+        const itemId = event.target.getAttribute('data-id');
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        cartItems = cartItems.filter(item => item.id != itemId);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateSidePanel();
+      }
+    });
+
+
+
+
+    /* shopping cart page */
+    // Function to update the cart table based on localStorage
+    function updateCartPage() {
+      const cartTableBody = document.querySelector('.cart-table tbody');
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      if (cartItems.length === 0) {
+        cartTableBody.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+        updateCartBadge(0); // Update badge count to 0 when empty
+        return;
+      }
+
+      let subtotal = 0;
+      let totalItems = 0; // To keep track of total items
+
+      // Clear existing items
+      cartTableBody.innerHTML = '';
+
+      cartItems.forEach(item => {
+        const itemRow = document.createElement('tr');
+        const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ''));
+        const total = (price * item.qty).toFixed(2);
+
+        // Build color circles dynamically
+        const colorCircles =
+          `<div class="circle-container">
+        <div class="circle circle-1" style="background-color: #4b4d4f; ${item.color === '#4b4d4f' ? '' : 'display: none;'}"></div>
+        <div class="circle circle-2" style="background-color: #f2e9dc; ${item.color === '#f2e9dc' ? '' : 'display: none;'}"></div>
+        <div class="circle circle-3" style="background-color: #eae8eb; ${item.color === '#eae8eb' ? '' : 'display: none;'}"></div>
+      </div>`;
+
+        itemRow.innerHTML =
+          `<td class="cart-item-info">
+        <img src="${item.photo}" alt="Product Image" class="product-image" />
+        <p>${item.name}</p>
+        ${colorCircles}
+      </td>
+      <td>${item.price}</td>
+      <td>
+        <input type="number" value="${item.qty}" class="quantity-input" data-id="${item.id}" min="1" />
+      </td>
+      <td>${total}</td>
+      <td>
+        <button class="remove-item" data-id="${item.id}">&#10006;</button>
+      </td>`;
+        cartTableBody.appendChild(itemRow);
+
+        subtotal += parseFloat(total);
+        totalItems += item.qty; // Increment total items
+      });
+
+      // Update totals and other info if needed
+      document.querySelector('.summary-info-row span.order-total').textContent = `$${subtotal.toFixed(2)}`;
+      updateCartBadge(totalItems); // Update badge count
+    }
+
+    // Event listener for quantity changes
+    document.querySelector('.cart-table').addEventListener('input', function (event) {
+      if (event.target.classList.contains('quantity-input')) {
+        const newQty = parseInt(event.target.value, 10);
+        const itemId = event.target.getAttribute('data-id');
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const itemIndex = cartItems.findIndex(item => item.id == itemId);
+
+        if (itemIndex > -1 && newQty > 0) {
+          cartItems[itemIndex].qty = newQty;
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          updateCartPage();
+        }
+      }
+    });
+
+    // Event listener for remove button clicks
+    document.querySelector('.cart-table').addEventListener('click', function (event) {
+      if (event.target.classList.contains('remove-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems = cartItems.filter(item => item.id != itemId);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartPage();
+      }
+    });
+
+
+
+
+    // Initial page load
+    updateCartPage();
+    updateSidePanel();
+
+  </script>
+  <script>
+    // Function to check if the user is logged in
+    function isLoggedIn() {
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      return users.some(user => user.signedIn);
+    }
+
+    // Handle checkout button clicks
+    function handleCheckoutClick(event) {
+      if (isLoggedIn()) {
+        alert('Checkout done');
+      } else {
+        window.location.href = 'login.html';
+      }
+    }
+
+    // Add event listeners to checkout buttons
+    document.getElementById('proceedToCheckout').addEventListener('click', handleCheckoutClick);
+    document.getElementById('paypalCheckout').addEventListener('click', handleCheckoutClick);
+    document.getElementById('multipleAddressesCheckout').addEventListener('click', handleCheckoutClick);
+  </script>
+  <script>
+    // Open search bar
+    document.getElementById('open-search').addEventListener('click', function () {
+      document.getElementById('search-bar').classList.remove('d-none');
+    });
+
+    // Close search bar
+    document.getElementById('close-search').addEventListener('click', function () {
+      document.getElementById('search-bar').classList.add('d-none');
+    });
+
+  </script>
+  <script src="login.js"></script>
+  <script src="user.js"></script>
+</body>
+
+</html>

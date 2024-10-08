@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.black-section {
+    background-color: black;
+    width: 100%;
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-section {
+    background-color: white;
+    width: 100%;
+    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-container2 {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+}
+
+.white-section  article {
+    order: 2;  /* Move article after the image */
+}
+@media (max-width: 992px) {
+    .white-section  article {
+        text-align: center;
+    }
+}
+.white-section  img {
+    order: 1;  /* Move image before the article */
+}
+
+.custom-container2 article {
+    max-width: 560px;
+}
+
+article h1 {
+    font-size: 55px;
+    font-weight: 100;
+}
+
+article p {
+    font-weight: 100;
+}
+
+.main-section .container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .circle {
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    background-color: #0156FF;
+    border-radius: 50% 50% 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 10px;
+
+  }
+
+  .circle2 {
+    width: 80px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    background-color: #0156FF;
+    border-radius: 50% 50% 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 10px;
+
+  }
+
+  .circle img {
+    width: 50%;
+    height: auto;
+  }
+
+  .circle2 img {
+    width: 50%;
+    height: auto;
+  }
+
+
+
+
+  h1 {
+    margin: 0;
+  }
+
+
+
+
+  .black-section, .white-section {
+    padding: 40px 20px;
+}
+
+.custom-container2 {
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+.main-section-title {
+    font-size: 2.5rem;
+}
+
+.main-section-paragraph {
+    font-size: 1.2rem; 
+}
+
+
+.main-section .feather-32 {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 1200px) {
+    .main-section-title {
+        font-size: 2rem;
+    }
+
+    .main-section-paragraph {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-section-title {
+        font-size: 1.8rem;
+    }
+
+    .main-section-paragraph {
+        font-size: 0.9rem;
+    }
+
+    .main-section .custom-container2 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main-section img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .main-section .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-section .feather-32 {
+        margin-bottom: 10px;
+    }
+    .main-section .d-flex {
+      display: block !important;
+  }
+  .custom-container2{
+      padding: 50px 0;
+  }
+}
+
+@media (max-width: 576px) {
+    .main-section-title {
+        font-size: 1.5rem;
+    }
+
+    .main-section-paragraph {
+        font-size: 0.8rem;
+    }
+
+    .black-section, .white-section {
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
+        /* General Styles */
+        .testimonial-container {
+          max-width: 1000px;
+          margin: 0 auto;
+      }
+  
+      .testimonial-quote {
+          font-size: 1.2rem;
+          line-height: 1.6;
+          color: #333;
+      }
+  
+      .testimonial-author {
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #555;
+      }
+  
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+          .testimonial-2 {
+              text-align: center; /* Center text for small screens */
+          }
+  
+          .testimonial-quote {
+              font-size: 1rem;
+          }
+  
+          .testimonial-author {
+              font-size: 1rem;
+          }
+  
+          /* Adjust size of quotation mark */
+          .testimonial-2 span {
+              font-size: 80px;
+          }
+      }
+  
+      @media (max-width: 576px) {
+          .testimonial-2 span {
+              font-size: 60px;
+          }
+  
+          .testimonial-quote {
+              font-size: 0.9rem;
+              text-align: center;
+          }
+  
+          .testimonial-author {
+              font-size: 0.9rem;
+          }
+
+      }

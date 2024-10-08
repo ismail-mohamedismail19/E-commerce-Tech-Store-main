@@ -1,0 +1,130 @@
+.side-panel-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.side-panel-top h5{
+    padding: 0;
+    margin: 0;
+}
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Start hidden off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    overflow-x: hidden;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2000;
+  }
+
+  .side-panel.show {
+    right: 0; /* Slide in */
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 36px;
+    color: #595959;
+    cursor: pointer;
+    position: relative;
+    text-align: right;
+  }
+
+  .item-list {
+    flex: 1; /* Take available space */
+    margin-bottom: 20px; /* Space below item list */
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .item-photo {
+    width: 46px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .item-info {
+    flex: 1;
+  }
+
+  .item-name {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .item-price, .item-qty {
+    margin: 0;
+    color: hsl(206, 20%, 14%);
+  }
+
+  .remove-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #0156FF;
+    cursor: pointer;
+  }
+
+.item-color-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.item-color {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.color-display {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+
+  .subtotal-price {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .total-price {
+    color: #0156FF;
+  }
+
+  .view-cart-btn {
+    background-color: #0156FF;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .view-cart-btn:hover {
+    background-color: hsl(206, 20%, 14%);
+  }
