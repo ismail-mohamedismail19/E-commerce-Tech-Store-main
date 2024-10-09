@@ -898,53 +898,76 @@ body {
 }
 
 
+
 @media (max-width: 576px) {
-  .main-content {
-    padding: 0 15px;
+    .main-content {
+      padding: 0 15px;
+    }
+  
+    .profile-section img.avatar-img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    .progress-container {
+      margin-top: 10px;
+    }
+  
+    .section h3 {
+      font-size: 18px;
+    }
+  
+    .section-content,
+    .edit-info-section,
+    .change-password-section {
+      padding: 15px 0;
+    }
+  
+    .account-info p {
+      font-size: 14px;
+    }
+  
+    .activity-item h5 {
+      font-size: 16px;
+    }
+  
+    .activity-count {
+      font-size: 18px;
+    }
+  
+    /* تكبير الـ User Activity */
+    #activityChart {
+      width: 100% !important;
+      height: 300px !important;
+    }
+  
+    /* جعل الـ Overview و Achievements تحت بعض */
+    .activity-stats {
+      flex-direction: column;
+    }
+    .section .fw-bold{
+        text-align: center;
+    }
+    .achievements-section .d-flex{
+        display: block !important;
+    }
+    .activity-stats .col-4,
+    .achievements-section .achievement-item {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .achievements-section .achievement-item {
+      flex-direction: column;
+    }
+  
+    .achievement-icon {
+      font-size: 24px;
+    }
   }
-
-  .profile-section img.avatar-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  .progress-container {
-    margin-top: 10px;
-  }
-
-  .section h3 {
-    font-size: 18px;
-  }
-
-  .section-content,
-  .edit-info-section,
-  .change-password-section {
-    padding: 15px 0;
-  }
-
-  .account-info p {
-    font-size: 14px;
-  }
-
-  .activity-item h5 {
-    font-size: 16px;
-  }
-
-  .activity-count {
-    font-size: 18px;
-  }
-
-  .achievements-section .achievement-item {
-    flex-direction: column;
-    font-size: 14px;
-  }
-
-  .achievement-icon {
-    font-size: 24px;
-  }
-}
+  
