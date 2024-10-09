@@ -893,3 +893,55 @@ color: #007BFF;
 .contact-box a:hover {
 text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
+.testimonial {
+  padding: 20px;
+}
+
+.testimonial-2 {
+  flex-direction: column;
+}
+
+.testimonial-quote {
+  margin: 15px 0;
+}
+
+.testimonial-author {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .testimonial-2 {
+      flex-direction: row;
+  }
+  
+  .testimonial-quote {
+      font-size: 1.1rem; /* Larger font size for larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+
+  .testimonial .pe-5{
+    font-size: 50px !important;
+  }
+  
+}
+@media (max-width: 576px) {
+  .testimonial-quote {
+      font-size: 1rem; /* Smaller font size for small screens */
+  }
+  
+  .testimonial-2 span {
+      font-size: 100px; /* Adjust size for smaller screens */
+  }
+}
